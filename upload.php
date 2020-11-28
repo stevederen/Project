@@ -36,8 +36,8 @@ if (isset($_POST['submit'])){
 					$result = $s3->putObject([
 						'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
 						'Key'    => $fileNameNew,
-						'Body'   => 'this is the body!',
-						'SourceFile' => $fileName // use this if you want to upload a file from a local location
+						'Body'   => 'this is the body!'
+						//'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
 					]);
 					
 					// Print the body of the result by indexing into the result object.
