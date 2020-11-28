@@ -1,5 +1,5 @@
 <?php
-require '/path/to/vendor/autoload.php';
+require 'vendor/autoload.php';
 
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
@@ -34,12 +34,9 @@ if (isset($_POST['submit'])){
                     ]
                 ]);
                 
-                // Send a PutObject request and get the result object.
-                $key = $fileNameNew;
-                
                 $result = $s3->putObject([
                     'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
-                    'Key'    => $key,
+                    'Key'    => $fileNameNew,
                     'Body'   => 'this is the body!',
                     //'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
                 ]);
