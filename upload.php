@@ -22,12 +22,12 @@ if (isset($_POST['submit'])){
                 header("Location: index.php?uploadsuccess");
 
             } else {
-                echo "The file is too big"
+                echo "The file is too big";
             }
         } else {
-            echo "There was an error uploading your file"
+            echo "There was an error uploading your file";
         }
     } else{
-        echo "Wrong File Type"
+        echo "Wrong File Type";
     }
 }
