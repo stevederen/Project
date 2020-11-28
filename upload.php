@@ -27,8 +27,7 @@ if (isset($_POST['submit'])){
                     'region'  => 'us-west-2',
                     'version' => 'latest',
                     'credentials' => [
-                        'key'    => "AKIAIGPMQZUIO5ZBAKVQ",
-                        'secret' => "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",
+                        'key'    => "AKIA2QTZ5VIHPEDRBZPE"
                     ]
                 ]);
                 
