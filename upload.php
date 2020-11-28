@@ -6,7 +6,8 @@ use Aws\S3\S3Client;
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
 
-/*
+
+	try {
     //File variables
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
@@ -19,8 +20,6 @@ if (isset($_POST['submit'])){
 
     //Files allowed
     $allowed = array('jpg', 'jpeg', 'png', 'pdf','gif', 'zip', 'txt', 'xls', 'doc', 'docx');
-
-    try {
         
     //File acceptance and where it uploads to
     if (in_array($lefiActualExt, $allowed)) {
@@ -59,7 +58,7 @@ if (isset($_POST['submit'])){
     }
 } catch(S3Exception $e){
     echo $e->getMessage();
-}*/
+}
 }
 
 
