@@ -1,5 +1,7 @@
 <?php
 require 'vendor/autoload.php';
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
 
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
@@ -26,16 +28,13 @@ if (isset($_POST['submit'])){
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
                 $fileDestination = './uploads/'.$fileNameNew;
                 //move_uploaded_file($fileTmpName, $fileDestination);
-                $s3 = new Aws\S3\S3Client([
+                $s3 = new S3Client([
                     'region'  => 'us-west-2',
-                    'version' => 'latest',
-                    'credentials' => [
-                        'key'    => 'AKIAIGPMQZUIO5ZBAKVQ'
-                    ]
+                    'version' => 'latest'
                 ]);
                 
                 $result = $s3->putObject([
-                    'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
+                    'Bucket' => 'storagetest-project',
                     'Key'    => $fileNameNew,
                     'Body'   => 'this is the body!',
                     //'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
@@ -57,7 +56,7 @@ if (isset($_POST['submit'])){
         echo "Wrong File Type";
 
     }
-} catch(Exception $e){
+} catch(S3Exception $e){
     echo $e->getMessage();
 }
 }
