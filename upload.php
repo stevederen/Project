@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
     //Files allowed
     $allowed = array('jpg', 'jpeg', 'png', 'pdf','gif', 'zip', 'txt', 'xls', 'doc', 'docx');
 
-    try {
+    /*try {
         
     //File acceptance and where it uploads to
     if (in_array($lefiActualExt, $allowed)) {
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])){
                 ]);
                 
                 $result = $s3->putObject([
-                    'Bucket' => 'arn:aws:s3:::elasticbeanstalk-us-west-2-722883947022',
+                    'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
                     'Key'    => $fileNameNew,
                     'Body'   => 'this is the body!',
                     //'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])){
     } else{
         echo "Wrong File Type";
 
-    }
+    }*/
 } catch(S3Exception $e){
     echo $e->getMessage();
 }
