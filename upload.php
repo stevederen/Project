@@ -15,9 +15,6 @@ if (isset($_POST['submit'])){
 		$fileError = $_FILES['file']['error'];
 		$fileType = $_FILES['file']['type'];
 
-		
-		echo $fileName;
-
 
 		$fileExt = explode('.', $fileName);
 		$fileActualExt = strtolower(end($fileExt));
@@ -44,6 +41,7 @@ if (isset($_POST['submit'])){
 					]);
 					
 					// Print the body of the result by indexing into the result object.
+					echo('Filename '.$fileTmpName.' uploaded as: '.$fileNameNew.'\n');      
 					echo($result);              
 				//Error if file is too big
 				} else {
