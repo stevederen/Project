@@ -21,44 +21,44 @@ if (isset($_POST['submit'])){
 
     try {
         
-    //File acceptance and where it uploads to
-    if (in_array($lefiActualExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 1000000) {
-                $fileNameNew = uniqid('', true).".".$fileActualExt;
-                $fileDestination = './uploads/'.$fileNameNew;
-                //move_uploaded_file($fileTmpName, $fileDestination);
-                $s3 = new S3Client([
-                    'region'  => 'us-west-2',
-                    'version' => 'latest'
-                ]);
-                
-                $result = $s3->putObject([
-                    'Bucket' => 'storagetest-project',
-                    'Key'    => $fileNameNew,
-                    'Body'   => 'this is the body!',
-                    //'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
-                ]);
-                
-                // Print the body of the result by indexing into the result object.
-                var_dump($result);              
-                header("Location: index.php?uploadsuccess");
-            //Error if file is too big
-            } else {
-                echo "The file is too big";
-            }
-        } else {
-            echo "There was an error uploading your file";
-        }
-        
-    //Wrong file type error
-    } else{
-        echo "Wrong File Type";
+		//File acceptance and where it uploads to
+		if (in_array($lefiActualExt, $allowed)) {
+			if ($fileError === 0) {
+				if ($fileSize < 1000000) {
+					$fileNameNew = uniqid('', true).".".$fileActualExt;
+					$fileDestination = './uploads/'.$fileNameNew;
+					//move_uploaded_file($fileTmpName, $fileDestination);
+					$s3 = new S3Client([
+						'region'  => 'us-west-2',
+						'version' => 'latest'
+					]);
+					
+					$result = $s3->putObject([
+						'Bucket' => 'arn:aws:s3:::elasticbeanstalk-us-west-2-722883947022',
+						'Key'    => $fileNameNew,
+						'Body'   => 'this is the body!',
+						//'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
+					]);
+					
+					// Print the body of the result by indexing into the result object.
+					var_dump($result);              
+					header("Location: index.php?uploadsuccess");
+				//Error if file is too big
+				} else {
+					echo "The file is too big";
+				}
+			} else {
+				echo "There was an error uploading your file";
+			}
+			
+		//Wrong file type error
+		} else{
+			echo "Wrong File Type";
 
-    }
-} catch(S3Exception $e){
-    echo $e->getMessage();
-}
+		}
+	} catch(S3Exception $e){
+		echo $e->getMessage();
+	}
 }
 
 ?>
