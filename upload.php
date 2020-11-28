@@ -1,4 +1,6 @@
 <?php
+require '/path/to/vendor/autoload.php';
+
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
 
@@ -15,12 +17,33 @@ if (isset($_POST['submit'])){
     //Files allowed
     $allowed = array('jpg', 'jpeg', 'png', 'pdf','gif', 'zip', 'txt', 'xls', 'doc', 'docx');
     //File acceptance and where it uploads to
-    if (in_array($fileActualExt, $allowed)) {
+    if (in_array($lefiActualExt, $allowed)) {
         if ($fileError === 0) {
             if ($fileSize < 1000000) {
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
                 $fileDestination = './uploads/'.$fileNameNew;
-                move_uploaded_file($fileTmpName, $fileDestination);
+                //move_uploaded_file($fileTmpName, $fileDestination);
+                $s3 = new Aws\S3\S3Client([
+                    'region'  => 'us-west-2',
+                    'version' => 'latest',
+                    'credentials' => [
+                        'key'    => "AKIAIGPMQZUIO5ZBAKVQ",
+                        'secret' => "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",
+                    ]
+                ]);
+                
+                // Send a PutObject request and get the result object.
+                $key = $fileNameNew;
+                
+                $result = $s3->putObject([
+                    'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
+                    'Key'    => $key,
+                    'Body'   => 'this is the body!',
+                    //'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
+                ]);
+                
+                // Print the body of the result by indexing into the result object.
+                var_dump($result);              
                 header("Location: index.php?uploadsuccess");
             //Error if file is too big
             } else {
