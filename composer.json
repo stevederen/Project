@@ -1,0 +1,12 @@
+{
+    "name": "moody/project",
+    "authors": [
+        {
+            "name": "Steve Dereniowski",
+            "email": "sderenkiowski@gmail.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.164"
+    }
+}

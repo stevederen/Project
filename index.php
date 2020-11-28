@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    require 'vendor/autoload.php'
+?>
 <html>
 <head>
     <title></title>
