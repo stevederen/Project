@@ -16,6 +16,9 @@ if (isset($_POST['submit'])){
 
     //Files allowed
     $allowed = array('jpg', 'jpeg', 'png', 'pdf','gif', 'zip', 'txt', 'xls', 'doc', 'docx');
+
+    try {
+        
     //File acceptance and where it uploads to
     if (in_array($lefiActualExt, $allowed)) {
         if ($fileError === 0) {
@@ -51,9 +54,15 @@ if (isset($_POST['submit'])){
         } else {
             echo "There was an error uploading your file";
         }
+        
     //Wrong file type error
     } else{
         echo "Wrong File Type";
+
     }
+} catch(Exception $e){
+    echo $e->getMessage();
 }
+}
+
 ?>
