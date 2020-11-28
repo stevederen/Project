@@ -2,10 +2,11 @@
 require 'vendor/autoload.php';
 use Aws\S3\Exception\S3Exception;
 use Aws\S3\S3Client;
-/*
+
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
 
+/*
     //File variables
     $fileName = $_FILES['file']['name'];
     $fileTmpName = $_FILES['file']['tmp_name'];
@@ -58,8 +59,8 @@ if (isset($_POST['submit'])){
     }
 } catch(S3Exception $e){
     echo $e->getMessage();
+}*/
 }
-}
-*/
+
 
 ?>
