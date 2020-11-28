@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
         if ($fileError === 0) {
             if ($fileSize < 1000000) {
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
-                $fileDestination = './uploads/'.$fileNameNew;
+                $fileDestination = 'uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 header("Location: index.php?uploadsuccess");
             //Error if file is too big
@@ -34,3 +34,4 @@ if (isset($_POST['submit'])){
         echo "Wrong File Type";
     }
 }
+?>
