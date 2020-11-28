@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 use Aws\S3\Exception\S3Exception;
 use Aws\S3\S3Client;
-
+/*
 if (isset($_POST['submit'])){
     $file = $_FILES['file'];
 
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
     //Files allowed
     $allowed = array('jpg', 'jpeg', 'png', 'pdf','gif', 'zip', 'txt', 'xls', 'doc', 'docx');
 
-    /*try {
+    try {
         
     //File acceptance and where it uploads to
     if (in_array($lefiActualExt, $allowed)) {
@@ -55,10 +55,11 @@ if (isset($_POST['submit'])){
     } else{
         echo "Wrong File Type";
 
-    }*/
+    }
 } catch(S3Exception $e){
     echo $e->getMessage();
 }
 }
+*/
 
 ?>
