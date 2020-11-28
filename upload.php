@@ -37,12 +37,11 @@ if (isset($_POST['submit'])){
 						'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
 						'Key'    => $fileNameNew,
 						'Body'   => 'this is the body!',
-						//'SourceFile' => 'c:\samplefile.png' -- use this if you want to upload a file from a local location
+						'SourceFile' => $fileName // use this if you want to upload a file from a local location
 					]);
 					
 					// Print the body of the result by indexing into the result object.
 					echo($result);              
-					header("Location: index.php?uploadsuccess");
 				//Error if file is too big
 				} else {
 					echo "The file is too big";
