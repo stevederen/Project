@@ -41,7 +41,7 @@ if (isset($_POST['submit'])){
 					]);
 					
 					// Print the body of the result by indexing into the result object.
-					var_dump($result);              
+					echo($result);              
 					header("Location: index.php?uploadsuccess");
 				//Error if file is too big
 				} else {
