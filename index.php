@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php
-    require 'vendor/autoload.php'
-?>
 <html>
 <head>
     <title></title>
@@ -11,7 +8,9 @@
     <input type="file" name="file">
     <button type="submit" name="submit"> Upload File </button>
 </form>
-    
-    RAWR
+
+<body style = "background: url(https://i.pinimg.com/originals/1c/a6/e1/1ca6e1c35e2d884230242cc0326dbf28.jpg); 
+                background-size: 100% 100%;">
+
 </body>
 </html>
