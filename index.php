@@ -5,7 +5,7 @@
 </head>
 <body>
 <form action= "upload.php" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file">
+    <input type="image" src="masterball.png" alt="Submit Form">
     <button type="submit" name="submit" src="masterball.png"> Upload File </button>
 </form>
 
@@ -13,5 +13,6 @@
 
 </body>
 </html>
+
 
 
