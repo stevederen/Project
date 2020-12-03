@@ -28,7 +28,6 @@ if (isset($_POST['submit'])){
 				if ($fileSize < 1000000) {
 					$fileNameNew = uniqid('', true).".".$fileActualExt;
 					$fileDestination = './uploads/'.$fileNameNew;
-					//move_uploaded_file($fileTmpName, $fileDestination);
 					$s3 = new S3Client([
 						'region'  => 'us-west-2',
 						'version' => 'latest'
@@ -36,7 +35,7 @@ if (isset($_POST['submit'])){
 					
 					$result = $s3->putObject([
 						'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
-						'Key'    => 'images/' . $fileActualExt . '/' . $fileNameNew,
+						'Key'    => 'files/' . $fileActualExt . '/' . $fileNameNew,
 						'SourceFile' => $fileTmpName //-- use this if you want to upload a file from a local location
 					]);
 					
