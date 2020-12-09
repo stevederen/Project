@@ -9,10 +9,10 @@
     <button type="submit" name="submit"> Upload File </button>   
 </form>
 
-<form>
+<form action= "search.php" method="POST" enctype="multipart/form-data">
 Search : 
 <input type="text">
-<input type="submit" value="submit">
+<input type="submit" value="search">
 
 </form>
 
