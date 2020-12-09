@@ -10,6 +10,7 @@ if (isset($_POST['submit'])){
 	try {
 		//File variables
 		$fileName = $_FILES['file']['name'];
+		$fileTmpName = $_FILES['file']['tmp_name'];
 		$fileSize = $_FILES['file']['size'];
 		$fileError = $_FILES['file']['error'];
 		$fileType = $_FILES['file']['type'];
@@ -25,7 +26,8 @@ if (isset($_POST['submit'])){
 		if (in_array($fileActualExt, $allowed)) {
 			if ($fileError === 0) {
 				if ($fileSize < 1000000) {
-					$fileDestination = './uploads/';
+					$fileNameNew = uniqid('', true).".".$fileActualExt;
+					$fileDestination = './uploads/'.$fileNameNew;
 					$s3 = new S3Client([
 						'region'  => 'us-west-2',
 						'version' => 'latest'
@@ -33,12 +35,12 @@ if (isset($_POST['submit'])){
 					
 					$result = $s3->putObject([
 						'Bucket' => 'elasticbeanstalk-us-west-2-722883947022',
-						'Key'    => 'files/' . $fileActualExt,
-						'SourceFile' => $fileName
+						'Key'    => 'files/' . $fileActualExt . '/' . $fileNameNew,
+						'SourceFile' => $fileTmpName
 					]);
 					
 					// Print the body of the result by indexing into the result object.
-					echo('Filename '.$fileName.' uploaded as: '.$fileName"\r\n");      
+					echo('Filename '.$fileName.' uploaded as: '.$fileNameNew."\r\n");      
 					echo($result);              
 				//Error if file is too big
 				} else {
