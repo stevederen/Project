@@ -21,23 +21,5 @@ Search :
 
 <body style = "background: url(https://i.pinimg.com/originals/1c/a6/e1/1ca6e1c35e2d884230242cc0326dbf28.jpg)">
 
-
-<table>
-            <thead>
-                <tr>
-                    <th>File</th>
-                    <th>Download</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($object as $object): ?>
-                <tr>
-                    <td><?php echo $object['Key']; ?></td>
-                    <td><a href="<?php echo $s3=>getObjectUrl($config['s3']['bucket'], $object['Key']); ?>" download="<?php $object['Key']; ?>">Download</a></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
 </body>
 </html>
