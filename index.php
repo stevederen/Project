@@ -11,7 +11,7 @@
     <button type="submit" name="submit"> Upload File </button>   
 </form>
 
-<a href="http://cloudcomputingproject-env-1.eba-ceu2tbvf.us-west-2.elasticbeanstalk.com/search.php">
+<a href="search.php">
     <button>Download</button>
 </a>
 
