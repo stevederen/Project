@@ -11,9 +11,9 @@
     <button type="submit" name="submit"> Upload File </button>   
 </form>
 
-<form action="search.php" method="POST">
-<input type="submit">
-</form>
+<a href="http://cloudcomputingproject-env-1.eba-ceu2tbvf.us-west-2.elasticbeanstalk.com/search.php">
+    <button>Download</button>
+</a>
 
 </div>
 
