@@ -40,8 +40,8 @@ if (isset($_POST['submit'])){
 					]);
 					
 					// Print the body of the result by indexing into the result object.
-					echo('Filename '.$fileName.' uploaded as: '.$fileNameNew."\r\n");      
-					echo($result);              
+					echo('Filename '.$fileName.' uploaded as: '.$fileNameNew."\r\n");   
+
 				//Error if file is too big
 				} else {
 					echo "The file is too big";
