@@ -11,12 +11,10 @@
     <button type="submit" name="submit"> Upload File </button>   
 </form>
 
-<form action= "search.php" method="POST" enctype="multipart/form-data">
-Search : 
-<input type="text">
-<input type="submit" value="search">
-
+<form action="search.php" method="POST">
+<input type="submit">
 </form>
+
 </div>
 
 <body style = "background: url(https://i.pinimg.com/originals/1c/a6/e1/1ca6e1c35e2d884230242cc0326dbf28.jpg)">
