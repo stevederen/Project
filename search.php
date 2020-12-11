@@ -10,10 +10,11 @@ var_dump($s3);
 //Creates objects variable, links it to objects in bucket
 $objects = $s3->getIterator('ListObjects', array(
     'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
-    'Prefix' => '/files/txt/'
+    'Prefix' => 'files/txt/'
 ));
 var_dump($s3->getIterator('ListObjects', array(
-    'Bucket' =>'elasticbeanstalk-us-west-2-722883947022'
+    'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
+    'Prefix' => 'files/'
 )));
 ?>
 
