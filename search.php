@@ -35,10 +35,10 @@ $objects = $s3->getIterator('ListObjects', array(
                      <!--Display name of objects-->
                     <td><?php echo $object['Key']; ?></td>
                     <!--Displays object download link-->
-                    <td><a href="<?php echo $s3->getObjectUrl($object['Key']); ?>" download="<?php $object['Key']; ?>">Download</a></td>
+                    <td><a href="<?php echo $s3->getObjectUrl('elasticbeanstalk-us-west-2-722883947022', $object['Key']); ?>" download="<?php $object['Key']; ?>">Download</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </body>
-</html>
+</html>>
