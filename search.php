@@ -19,6 +19,7 @@ $objects = $s3->getIterator('ListObjects', array(
         <meta charset="UTF-8">
         <title>Listings</title>
     </head>
+    <div id="content" align="center">
     <body>
         <table>
             <thead>
@@ -40,5 +41,8 @@ $objects = $s3->getIterator('ListObjects', array(
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+
+    <body style = "background: url(https://i.pinimg.com/originals/1c/a6/e1/1ca6e1c35e2d884230242cc0326dbf28.jpg)">  
     </body>
-</html>>
+</html>
