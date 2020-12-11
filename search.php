@@ -4,13 +4,11 @@ use Aws\S3\S3Client;
 
 $s3 = new S3Client([
     'region'  => 'us-west-2',
-    'version' => 'latest'
-]);
+    'version' => 'latest']);
 //Creates objects variable, links it to objects in bucket
 $objects = $s3->getIterator('ListObjects', array(
     'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
-    'Prefix' => 'files/'
-));
+    'Prefix' => 'files/'));
 ?>
 
 <!DOCTYPE html>
