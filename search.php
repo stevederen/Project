@@ -34,6 +34,8 @@ $objects = $s3->getIterator('ListObjects', array(
                 <tr>
                      <!--Display name of objects-->
                     <td><?php echo $object['Key']; ?></td>
+                    <!--Displays object download link-->
+                    <td><a href="<?php echo $s3->getObjectUrl($object['Key']); ?>" download="<?php $object['Key']; ?>">Download</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
