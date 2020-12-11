@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 use Aws\S3\S3Client;
 
 //Creates objects variable, links it to objects in bucket
-$objects = $s3->getIterator('ListObjects', ['elasticbeanstalk-us-west-2-722883947022' => $config['s3']['bucket'] ]);
+$objects = $s3->getIterator('ListObjects', ['Bucket' => $config['s3']['elasticbeanstalk-us-west-2-722883947022'] ]);
 ?>
 
 <!DOCTYPE html>
