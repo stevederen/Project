@@ -30,6 +30,7 @@ $objects = $s3->getIterator('ListObjects', array(
             <!--Table for listing objects-->
             <tbody>
                 <!--Finds objects in bucket-->
+                <?php echo $objects; ?>
                 BEFOREFOREACH
                 <?php foreach($objects as $object): ?>
                 <tr>
