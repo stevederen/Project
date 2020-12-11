@@ -11,7 +11,7 @@
     <button type="submit" name="submit"> Upload File </button>   
 </form>
 
-<a href="search.php">
+<a href="index.php">
     <button>Download</button>
 </a>
 
