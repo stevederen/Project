@@ -7,9 +7,9 @@ $s3 = new S3Client([
     'version' => 'latest'
 ]);
 //Creates objects variable, links it to objects in bucket
-$objects = $s3->getListObjectsIterator(array(
+$objects = $s3->getIterator('ListObjects', array(
     'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
-    'Prefix' => 'files/'
+    'Prefix' => '/files/txt/'
 ));
 ?>
 
