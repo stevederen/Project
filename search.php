@@ -11,10 +11,6 @@ $objects = $s3->getIterator('ListObjects', array(
     'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
     'Prefix' => 'files/'
 ));
-var_dump($s3->getIterator('ListObjects', array(
-    'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
-    'Prefix' => 'files/'
-)));
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +30,8 @@ var_dump($s3->getIterator('ListObjects', array(
             <!--Table for listing objects-->
             <tbody>
                 <!--Finds objects in bucket-->
-                <?php var_dump($objects); ?>
-                BEFOREFOREACH
                 <?php foreach($objects as $object): ?>
                 <tr>
-                    INFOREACH
                      <!--Display name of objects-->
                     <td><?php echo $object['Key']; ?></td>
                 </tr>
