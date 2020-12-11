@@ -2,8 +2,15 @@
 require 'vendor/autoload.php';
 use Aws\S3\S3Client;
 
+$bucket = 'elasticbeanstalk-us-west-2-722883947022';
+$keyname = '/files';
+
+$s3 = new S3Client([
+    'region'  => 'us-west-2',
+    'version' => 'latest'
+]);
 //Creates objects variable, links it to objects in bucket
-$objects = $s3->getIterator('ListObjects', ['Bucket' => $config['s3']['elasticbeanstalk-us-west-2-722883947022'] ]);
+$objects = $s3->getIterator('ListObjects', ['Bucket' => $config['s3']['elasticbeanstalk-us-west-2-722883947022']]);
 ?>
 
 <!DOCTYPE html>
