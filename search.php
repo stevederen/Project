@@ -8,8 +8,8 @@ $s3 = new S3Client([
 ]);
 //Creates objects variable, links it to objects in bucket
 $objects = $s3->getIterator('ListObjects', array(
-    'Bucket' =>'elasticbeanstalk-us-west-2-722883947022',
-    'Prefix' => '/files/txt/'
+    "Bucket" =>'elasticbeanstalk-us-west-2-722883947022',
+    "Prefix" => '/files/txt/'
 ));
 ?>
 
@@ -27,12 +27,13 @@ $objects = $s3->getIterator('ListObjects', array(
                     <th>Download</th>
                 </tr>
             </thead>
-
             <!--Table for listing objects-->
             <tbody>
                 <!--Finds objects in bucket-->
+                BEFOREFOREACH
                 <?php foreach($objects as $object): ?>
                 <tr>
+                    INFOREACH
                      <!--Display name of objects-->
                     <td><?php echo $object['Key']; ?></td>
                 </tr>
